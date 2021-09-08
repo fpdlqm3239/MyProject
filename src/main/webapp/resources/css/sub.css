@@ -1,0 +1,100 @@
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+section.sub_container{
+	width:100%; height: auto;
+}
+section.sub_container .inner{
+	height: auto;
+}
+section.sub_container .sub_contents{
+	margin-top: 50px;
+}
+section.sub_container .sub_contents.clearfix:after{
+	content:'';
+	display:block;
+	clear: both;
+}
+section.sub_container .sub_contents .sub_title{
+	width:26%; margin:0;
+}
+section.sub_container .sub_contents .sub_title h2{
+	margin:0;
+}
+section.sub_container .sub_contents .sub_title h2 strong,
+section.sub_container .sub_contents .sub_title h2 span{
+	display: block;
+	font-family: 'NS', sans-serif;
+	font-weight: bold;
+	font-size:22px;
+	line-height: 1.5;
+	color:#000000;
+}
+section.sub_container .sub_contents .sub_table{
+	width:74%; margin:0;
+}
+section.sub_container .sub_contents .sub_table table{
+	width:100%;
+	border-collapse: collapse;
+	border:1px solid #e6e6e6;
+	border-top:2px solid #000000;
+	border-right: 0;
+	border-left: 0;
+}
+section.sub_container .sub_contents .sub_table table tr{
+	height: 50px;
+}
+section.sub_container .sub_contents .sub_table table tr,
+section.sub_container .sub_contents .sub_table table th,
+section.sub_container .sub_contents .sub_table table td{
+	border:1px solid #e6e6e6;
+	font-family: 'NS', sans-serif;
+	font-size:14px;
+	color:#000000;
+	letter-spacing: -0.5px;
+	text-align: center;
+}
+section.sub_container .sub_contents .sub_table table td.txt_left{
+	text-align: left;
+	padding-left:20px;
+}
+
+
+section.sub_container .sub_contents .sub_table table tr.bdln,
+section.sub_container .sub_contents .sub_table table th.bdln,
+section.sub_container .sub_contents .sub_table table td.bdln{
+	border-left:none;
+}
+section.sub_container .sub_contents .sub_table table tr.bdrn,
+section.sub_container .sub_contents .sub_table table th.bdrn,
+section.sub_container .sub_contents .sub_table table td.bdrn{
+	border-right:none;
+}
+section.sub_container .sub_contents .sub_table table tr.color,
+section.sub_container .sub_contents .sub_table table th.color,
+section.sub_container .sub_contents .sub_table table td.color{
+	color:#999999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
