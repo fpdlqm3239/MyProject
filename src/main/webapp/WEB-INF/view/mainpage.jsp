@@ -40,11 +40,12 @@
 						</c:if>
 						<c:if test="${isUser == false}">
 						<a href="/vulnerability/members/loginform">로그인</a>
-						</c:if>
+						
 					</li>
 					<li class="login-btn">
 						<a href="/vulnerability/members/joinform">회원가입</a>
 					</li>
+					</c:if>
 				</ul>
 			</div>
 		</div>

@@ -10,7 +10,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css" type="text/css">
-
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<style type="text/css">
+		.msg{
+			color: red;
+			text-align: center;
+			display: none;
+		}
+	</style>
 </head>
 <body>
 	<div id="header" class="clearfix">
@@ -53,9 +61,7 @@
 	</div>
 	<div class="login-wrap">
 		<div class="login-html">
-			<c:if test="${isUser == false}">
-			<input id="tab-1"  type="radio" name="tab" class="sign-in"  ><label for="tab-1" class="tab">로그인</label>
-			</c:if>
+			
 			<input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">회원가입</label>
 			<div class="login-form">
 				<div class="sign-in-htm">
@@ -63,6 +69,9 @@
 						<div class="group">
 							<label for="user" class="label">아이디</label>
 							<input name="userId" id="user" type="text" class="input">
+					
+							
+							
 						</div>
 						<div class="group">
 							<label for="pass" class="label">비밀번호</label>
@@ -83,31 +92,43 @@
 					</div>
 				</div>
 
-			<form class="js-joinForm" method="post" action="/vulnerability/members/join">
+                <input type="hidden" class="checkSubmit" value="0" id="nameCheck">
+                <input type="hidden" class="checkSubmit" value="0" id="idCheck">
+                <input type="hidden" class="checkSubmit" value="0" id="passCheck">
+                <input type="hidden" class="checkSubmit" value="0" id="passConfirmCheck">
+                <input type="hidden" class="checkSubmit" value="0" id="phoneCheck">
+			<form class="js-joinForm" method="post" action="${pageContext.request.contextPath}/members/join">
 				<div class="sign-up-htm">
 					<div class="group">
 						<label for="user" class="label">이름</label>
-						<input name="name" id="user" type="text" class="input">
+						<input name="name" id="name" type="text" class="input">
 					</div>
+                    <div id="nameMsg" class="msg">이름을 입력해주세요</div>
                     <div class="group">
 						<label for="user" class="label">아이디</label>
-						<input name="loginId" id="user" type="text" class="input">
+						<input name="loginId" id="id" type="text" class="input">
 					</div>
+					<div id="idMsg" class="msg">아이디를 입력해주세요</div>
+                    <div id="idCheckMsg" class="msg">이미 사용중인 아이디 입니다</div>
 					<div class="group">
 						<label for="pass" class="label">비밀번호</label>
-						<input name="password" id="pass" type="password" class="input js-pass" data-type="password">
+						<input name="password" id="password" type="password" class="input js-pass" data-type="password">
 					</div>
+                    <div id="passMsg" class="msg">비밀번호를 입력해주세요</div>
 					<div class="group">
 						<label for="pass" class="label">비밀번호 확인</label>
-						<input name="passConfirm" id="pass" type="password" class="input js-passconfirm" data-type="password">
+						<input name="passConfirm" id="passConfirm" type="password" class="input js-passconfirm" data-type="password">
 					</div>
+                    <div id="passConfirmMsg" class="msg">비밀번호가 같지않습니다</div>
 					<div class="group">
 						<label for="pass" class="label">전화번호</label>
-						<input name="phone" id="pass" type="text" class="input">
+						<input name="phone" id="phone" type="text" class="input">
 					</div>
+                    <div id="phoneMsg" class="msg">전화번호를 입력해주세요</div>
 					<div class="group">
-						<input type="button" class="button js-joinBtn" value="Sign Up">
+						<input type="button" class="button js-joinBtn" value="회원가입">
 					</div>
+					
 					<div class="hr"></div>
 					<div class="foot-lnk">
 						<a><label for="tab-1">이미 회원이신가요?</a>
@@ -117,56 +138,108 @@
 			</div>
 		</div>
 	</div>
-    <script>
+    <script type="text/javascript">
+		$("#name").focusout(function () {
+            var name = $("#name").val();
 
-		const loginForm = document.querySelector(".js-loginForm");
-		const loginBtn = document.querySelector(".js-loginBtn");
-		loginBtn.addEventListener("click", loginFormCheck);
-
-		function loginFormCheck(){
-			if(loginForm.userId.value == ""){
-				alert("아이디를 입력해주세요");
-			}else if(loginForm.password.value == ""){
-				alert("비밀번호를 입력해주세요");
-			}else{
-				loginForm.submit();
+            if(name == ""){
+                $("#nameMsg").show();
+                $("#nameCheck").val("0");
+                return;
+            }
+            $("#nameCheck").val("1");
+        });
+		
+		$("#name").keyup(function() {
+			 $("#nameMsg").hide();
+			 $("#nameCheck").val("0");
+		})
+		
+		$("#id").focusout(function() {
+			var id = $("#id").val();
+			if(id == ""){
+				$("#idMsg").show();
+				$("#idCheck").val("0");
+				return;
 			}
-		}
-
-		const joinForm = document.querySelector(".js-joinForm");
-    	const joinBtn = document.querySelector(".js-joinBtn");
-        
-        joinBtn.addEventListener("click", joinFormCheck);
-
-		function joinFormCheck(){
-			if(joinForm.name.value == ""){
-				alert("이름을 입력해주세요");
-			}else if(joinForm.loginId.value == ""){
-				alert("아이디를 입력해주세요");
-			}else if(joinForm.password.value == ""){
-				alert("비밀번호를 입력해주세요");
-			}else if(joinForm.passConfirm.value ==""){
-				alert("비밀번호 확인을 입력해주세요");
-			}else if(joinForm.phone.value == ""){
-				alert("전화번호를 입력해주세요");
-			}else if(!checkPassword()){
-				alert("비밀번호와 비밀번호 재입력이 맞지 않습니다");
-			}else{
-				joinForm.submit();
+			
+			 $("#idCheck").val("1");
+		})
+		
+		$("#id").keyup(function() {
+			 $("#idMsg").hide();
+			 $("#idCheck").val("0");
+		});
+		
+		$("#password").focusout(function() {
+			var password = $("#password").val();
+			if(password ==""){
+				$("#passMsg").show();
+				$("#passCheck").val("0");
+				return;
 			}
-		}
-
-        function checkPassword(){
-            const password = document.querySelector(".js-pass");
-			const confirmPassword = document.querySelector(".js-passconfirm");
-
-			if(password.value !== confirmPassword.value){
+			$("#passCheck").val("1");
+		});
+			
+		$("#password").keyup(function() {
+				 $("#passMsg").hide();
+				 $("#passCheck").val("0");
+			});
+		
+		$("#passConfirm").focusout(function() {
+			if($("#passCheck").val() == "0") return;
+			
+			var passConfirm = $("#passConfirm").val();
+			
+			if(passConfirm =="" || passConfirm != $("#password").val()){
+				$("#passConfirmMsg").show();
+				$("#passConfirmCheck").val("0");
+				return;
+			}
+			$("#passConfirmCheck").val("1");
+		});
+		
+		$("#passConfirm").keyup(function() {
+			 $("#passConfirmMsg").hide();
+			 $("#passConfirmCheck").val("0");
+		});
+		
+		$("#phone").focusout(function() {
+			var phone = $("#phone").val();
+			if(phone ==""){
+				$("#phoneMsg").show();
+				$("#phoneCheck").val("0");
+				return;
+			}
+			$("#phoneCheck").val("1");
+		});
+		
+		$("#phone").keyup(function() {
+			 $("#phoneMsg").hide();
+			 $("#phoneCheck").val("0");
+		});
+		
+		$(".js-joinBtn").click(function() {
+			var check = true;
+			$(".checkSubmit").each(function(i, element) {
+				if($(this).val() == "0"){;
+					check = false;
+				}
 				
-				return false;
+			});
+			
+			if(check ==true){
+				alert("완료");
 			}
-
-			return true;		
-        }
+			
+			
+		})
+		
+		
+		
+		
+		
+		
     
     </script>
 </body>

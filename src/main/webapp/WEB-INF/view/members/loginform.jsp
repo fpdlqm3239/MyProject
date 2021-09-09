@@ -10,7 +10,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css" type="text/css">
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   	
+    
 </head>
 <body>
 	<div id="header" class="clearfix">
@@ -48,7 +50,7 @@
 	<div class="login-wrap">
 		<div class="login-html">
 			<input id="tab-1"  type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">로그인</label>
-			<input id="tab-2" type="radio" name="tab" class="sign-up" ><label for="tab-2" class="tab">회원가입</label>
+			<input id="tab-2" type="radio" name="tab" class="sign-up" ><label for="tab-2" class="tab"></label>
 			<div class="login-form">
 				<div class="sign-in-htm">
 					<form class="js-loginForm" method="post" action="/vulnerability/authenticate">
@@ -61,12 +63,13 @@
 							<input name="password" id="pass" type="password" class="input" data-type="password">
 						</div>
 						
+						<br> <br>
 						<div class="group">
-							<input id="check" type="checkbox" class="check" >
-							<label for="check"><span class="icon"></span>아이디 기억하기</label>
+							<input type="button" class="button js-loginBtn" value="로그인">
 						</div>
+						<br>
 						<div class="group">
-							<input type="button" class="button js-loginBtn" value="Sign In">
+							<input type="button" class="button js-join_Btn" value="회원가입">
 						</div>
 					</form>
 					<div class="hr"></div>
@@ -109,57 +112,13 @@
 			</div>
 		</div>
 	</div>
-    <script>
-
-		const loginForm = document.querySelector(".js-loginForm");
-		const loginBtn = document.querySelector(".js-loginBtn");
-		loginBtn.addEventListener("click", loginFormCheck);
-
-		function loginFormCheck(){
-			if(loginForm.userId.value == ""){
-				alert("아이디를 입력해주세요");
-			}else if(loginForm.password.value == ""){
-				alert("비밀번호를 입력해주세요");
-			}else{
-				loginForm.submit();
-			}
-		}
-
-		const joinForm = document.querySelector(".js-joinForm");
-    	const joinBtn = document.querySelector(".js-joinBtn");
-        
-        joinBtn.addEventListener("click", joinFormCheck);
-
-		function joinFormCheck(){
-			if(joinForm.name.value == ""){
-				alert("이름을 입력해주세요");
-			}else if(joinForm.loginId.value == ""){
-				alert("아이디를 입력해주세요");
-			}else if(joinForm.password.value == ""){
-				alert("비밀번호를 입력해주세요");
-			}else if(joinForm.passConfirm.value ==""){
-				alert("비밀번호 확인을 입력해주세요");
-			}else if(joinForm.phone.value == ""){
-				alert("전화번호를 입력해주세요");
-			}else if(!checkPassword()){
-				alert("비밀번호와 비밀번호 재입력이 맞지 않습니다");
-			}else{
-				joinForm.submit();
-			}
-		}
-
-        function checkPassword(){
-            const password = document.querySelector(".js-pass");
-			const confirmPassword = document.querySelector(".js-passconfirm");
-
-			if(password.value !== confirmPassword.value){
-				
-				return false;
-			}
-
-			return true;		
-        }
     
+
+		
+    <script type="text/javascript">
+   		$(".js-join_Btn").click(function () {
+			location.href = "/vulnerability/members/joinform";
+		})
     </script>
 </body>
 </html>
