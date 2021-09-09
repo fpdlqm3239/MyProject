@@ -104,17 +104,22 @@
 						<input name="name" id="name" type="text" class="input">
 					</div>
                     <div id="nameMsg" class="msg">이름을 입력해주세요</div>
+                    <div id="nameRegMsg" class="msg">한글 2~4자 입력해주세요</div>
                     <div class="group">
 						<label for="user" class="label">아이디</label>
 						<input name="loginId" id="id" type="text" class="input">
 					</div>
 					<div id="idMsg" class="msg">아이디를 입력해주세요</div>
+					<div id="idRegMsg" class="msg">영문자로 시작하는 6~20자 영문자 또는 숫자이어야 합니다</div>
                     <div id="idCheckMsg" class="msg">이미 사용중인 아이디 입니다</div>
+                    
 					<div class="group">
 						<label for="pass" class="label">비밀번호</label>
 						<input name="password" id="password" type="password" class="input js-pass" data-type="password">
 					</div>
                     <div id="passMsg" class="msg">비밀번호를 입력해주세요</div>
+                    <div id="passRegMsg" class="msg">영문자 숫자 조합 8-20자 입력해주세요</div>
+                    
 					<div class="group">
 						<label for="pass" class="label">비밀번호 확인</label>
 						<input name="passConfirm" id="passConfirm" type="password" class="input js-passconfirm" data-type="password">
@@ -141,17 +146,25 @@
     <script type="text/javascript">
 		$("#name").focusout(function () {
             var name = $("#name").val();
-
+            var nameReg = /^[가-힣]{2,4}$/;
             if(name == ""){
                 $("#nameMsg").show();
                 $("#nameCheck").val("0");
                 return;
             }
+            
+            if(nameReg.test(name) == false){
+            	 $("#nameRegMsg").show();
+                 $("#nameCheck").val("0");
+                 return;
+            }
+            
             $("#nameCheck").val("1");
         });
 		
 		$("#name").keyup(function() {
 			 $("#nameMsg").hide();
+			 $("#nameRegMsg").hide();
 			 $("#nameCheck").val("0");
 		})
 		
@@ -163,26 +176,48 @@
 				return;
 			}
 			
+			 var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
+			 if(idReg.test(id) == false){
+				 $("#idRegMsg").show();
+				 $("#idCheck").val("0");
+					return;
+			 }
+			
+			
 			 $("#idCheck").val("1");
 		})
 		
 		$("#id").keyup(function() {
 			 $("#idMsg").hide();
+			 $("#idRegMsg").hide();
 			 $("#idCheck").val("0");
 		});
 		
 		$("#password").focusout(function() {
 			var password = $("#password").val();
+			
 			if(password ==""){
 				$("#passMsg").show();
 				$("#passCheck").val("0");
 				return;
 			}
+			
+			var passReg = /^[a-zA-z0-9]{8,20}$/g;
+			var num = password.search(/[0-9]/g);
+			var eng = password.search(/[a-z]/ig);
+			
+			if(passReg.test(password) ==false || (num<0 || eng <0)){
+				$("#passRegMsg").show();
+				$("#passCheck").val("0");
+				return;
+			}
+			
 			$("#passCheck").val("1");
 		});
 			
 		$("#password").keyup(function() {
 				 $("#passMsg").hide();
+				 $("#passRegMsg").hide();
 				 $("#passCheck").val("0");
 			});
 		
