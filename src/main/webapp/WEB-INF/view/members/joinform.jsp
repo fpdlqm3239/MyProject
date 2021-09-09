@@ -264,7 +264,7 @@
 			});
 			
 			if(check ==true){
-				alert("완료");
+				alert("완료임");
 			}
 			
 			
