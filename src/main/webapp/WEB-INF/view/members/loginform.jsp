@@ -12,7 +12,12 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css" type="text/css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    	
-    
+    <style type="text/css">
+    	.msg{
+    		color: red;
+    		display: none;
+    	}
+    </style>
 </head>
 <body>
 	<div id="header" class="clearfix">
@@ -58,10 +63,14 @@
 							<label for="user" class="label">아이디</label>
 							<input name="userId" id="user" type="text" class="input">
 						</div>
+						<div class="msg" id="idMsg">아이디를 입력해주세요</div>
 						<div class="group">
 							<label for="pass" class="label">비밀번호</label>
 							<input name="password" id="pass" type="password" class="input" data-type="password">
 						</div>
+						<div class="msg" id="passMsg">비밀번호를 입력해주세요</div>
+						<div style="color: red" id="failMsg">${failMsg}</div>
+						
 						
 						<br> <br> <br> <br>
 						<div class="group">
@@ -119,8 +128,26 @@
 		})
 		
 		$(".js-loginBtn").click(function() {
+			$("#failMsg").hide();
+			$(".msg").hide();
+			
+			var user = $("#user").val();
+			if(user == ""){
+				$("#idMsg").show();
+				return;
+			}
+			
+			var pass = $("#pass").val();
+			if(pass == ""){
+				$("#passMsg").show();
+				return;
+			}
+			
 			$(".js-loginForm").submit();
 		})
+		
+		
+		
     </script>
 </body>
 </html>

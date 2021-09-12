@@ -6,17 +6,68 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${pageContext.request.contextPath}/resources/css/common.css" type="text/css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/css/box.css" type="text/css" rel="stylesheet">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sub.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <style type="text/css">
 
-
-
-h4{
-display: inline;
+body{
+	background-color: white;
 }
-p{
-display: inline;
+
+table.type09 {
+  
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  margin-left: -370px;
+  height: 500px;
+  
+  
+ 
+
+
+}
+table.type09 thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #369;
+  border-bottom: 3px solid #036;
+  color: black;
+  text-align: center;
+}
+table.type09 tbody th {
+  width: 200px;
+  
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+  color: black;
+  text-align: center;
+}
+table.type09 td {
+  width: 500px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  font-weight: lighter;
+  color: black;
+  
+
+ 
+}
+
+#btn{
+	width: 100px;
+	top: 70%;
+	left: 50%;
+	position: absolute;
+	margin-left: -50px;
 }
 </style>
 </head>
@@ -56,32 +107,56 @@ display: inline;
 		</div>
 	</div>
 <br><br>
-<div class="box">
-<br><br><br><br>
-<h4>ID :</h4>
-<p>${request.loginId}</p><br><br><br>
 
 
-<h4>전화번호 : </h4>
-<p>${request.phone}</p><br><br><br>
 
-<h4>OS : </h4>
-<p>${request.os }</p><br><br><br>
+  <table class="type09">
+        <thead>
+        <tr>
+          <th scope="cols">취약점 진단 신청 정보</th>
+          <th scope="cols"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">아이디</th>
+          <td>${request.loginId}</td>
+        </tr>
+        <tr>
+          <th scope="row">전화번호</th>
+          <td>${request.phone}</td>
+        </tr>
+        <tr>
+          <th scope="row">ip</th>
+          <td>${request.ip}</td>
+        </tr>
+        <tr>
+          <th scope="row">시스템 USER 계정</th>
+          <td>${request.userAccount}</td>
+        </tr>
+        <tr>
+          <th scope="row">시스템 USER 패스워드</th>
+          <td>${request.userPassword}</td>
+        </tr>
+        <tr>
+          <th scope="row">시스템 ROOT 패스워드</th>
+          <td>${request.rootPassword}</td>
+        </tr>
 
-<h4>IP : </h4>
-<p>${request.ip}</p><br><br><br>
+        
+        </tbody>
+        
+      </table>
+	
+		<button id="btn">돌아가기</button>
+      
 
-<h4>시스템 USER 계정 : </h4>
-<p>${request.userAccount}</p><br><br><br>
-
-<h4>시스템 USER 패스워드 : </h4>
-<p>${request.userPassword}</p><br><br><br>
-
-<h4>시스템 ROOT 패스워드 :</h4>
-<p>${request.rootPassword}</p><br><br><br>
-<br><br><br>
-<a href="/vulnerability/mypages/result">돌아가기 -></a>
-<br><br><br><br><br><br><br><br>
-</div>
+<script type="text/javascript">
+	$("#btn").click(function() {
+		location.href = '${pageContext.request.contextPath}/mypages/result';
+	})
+</script>
 </body>
+
+
 </html>
