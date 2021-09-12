@@ -130,13 +130,15 @@
 						<input name="phone" id="phone" type="text" class="input">
 					</div>
                     <div id="phoneMsg" class="msg">전화번호를 입력해주세요</div>
+                    <div id="phoneRegMsg" class="msg">전화번호 형식에맞게 입력해주세요</div>
+                    <br>
 					<div class="group">
 						<input type="button" class="button js-joinBtn" value="회원가입">
 					</div>
 					
 					<div class="hr"></div>
 					<div class="foot-lnk">
-						<a><label for="tab-1">이미 회원이신가요?</a>
+						<a href="${pageContext.request.contextPath}/members/loginform"><label for="tab-1">이미 회원이신가요?</a>
 					</div>
 				</div>
 			</form>
@@ -182,6 +184,26 @@
 				 $("#idCheck").val("0");
 					return;
 			 }
+			 
+			var jsonData;
+			$.ajax({
+				
+				type: "GET",
+				url: "/vulnerability/members/idcheck",
+				data: {"loginId" : id},
+				async : false,
+				dataType : 'JSON',
+				success : function (data) {
+					jsonData = data;
+				}
+				
+			});
+			
+			if(jsonData.code == "false"){
+				 $("#idCheckMsg").show();
+				 $("#idCheck").val("0");
+				return;
+			}
 			
 			
 			 $("#idCheck").val("1");
@@ -189,6 +211,7 @@
 		
 		$("#id").keyup(function() {
 			 $("#idMsg").hide();
+			 $("#idCheckMsg").hide();
 			 $("#idRegMsg").hide();
 			 $("#idCheck").val("0");
 		});
@@ -246,25 +269,59 @@
 				$("#phoneCheck").val("0");
 				return;
 			}
+			
+			var phoneReg = /01[016789]-[^0][0-9]{3}-[0-9]{4}/;
+			if(phoneReg.test(phone)==false){
+				$("#phoneRegMsg").show();
+				$("#phoneCheck").val("0");
+				return;
+			}
+			
 			$("#phoneCheck").val("1");
 		});
 		
 		$("#phone").keyup(function() {
 			 $("#phoneMsg").hide();
+			 $("#phoneRegMsg").hide();
 			 $("#phoneCheck").val("0");
+			 
+			 var number = $("#phone").val().replace(/[^0-9]/g, "");
+			 var phone = "";
+			 
+
+
+			    if(number.length < 4) {
+			        return number;
+			    } else if(number.length < 8) {
+			        phone += number.substr(0, 3);
+			        phone += "-";
+			        phone += number.substr(3);
+			    } else {
+			        phone += number.substr(0, 3);
+			        phone += "-";
+			        phone += number.substr(3, 4);
+			        phone += "-";
+			        phone += number.substr(7,4);
+			    }
+			    
+			    $("#phone").val(phone);
+			    
+			 
 		});
+		
+		
 		
 		$(".js-joinBtn").click(function() {
 			var check = true;
 			$(".checkSubmit").each(function(i, element) {
-				if($(this).val() == "0"){;
+				if($(this).val() == "0"){
 					check = false;
 				}
 				
 			});
 			
 			if(check ==true){
-				alert("완료임");
+				$(".js-joinForm").submit();
 			}
 			
 			

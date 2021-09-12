@@ -63,19 +63,17 @@
 							<input name="password" id="pass" type="password" class="input" data-type="password">
 						</div>
 						
-						<br> <br>
+						<br> <br> <br> <br>
 						<div class="group">
 							<input type="button" class="button js-loginBtn" value="로그인">
 						</div>
 						<br>
 						<div class="group">
-							<input type="button" class="button js-join_Btn" value="회원가입">
+							<input type="button" class="button js-joinBtn" value="회원가입">
 						</div>
 					</form>
 					<div class="hr"></div>
-					<div class="foot-lnk">
-						<a href="#forgot">Forgot Password?</a>
-					</div>
+					
 				</div>
 
 			<form class="js-joinForm" method="post" action="/vulnerability/members/join">
@@ -116,8 +114,12 @@
 
 		
     <script type="text/javascript">
-   		$(".js-join_Btn").click(function () {
+   		$(".js-joinBtn").click(function () {
 			location.href = "/vulnerability/members/joinform";
+		})
+		
+		$(".js-loginBtn").click(function() {
+			$(".js-loginForm").submit();
 		})
     </script>
 </body>
