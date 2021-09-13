@@ -10,9 +10,6 @@
 
 <style type="text/css">
 
-body{
-	background-color: white;
-}
 
 table.type09 {
   
@@ -23,7 +20,7 @@ table.type09 {
   left: 50%;
   top: 20%;
   margin-left: -370px;
-  height: 500px;
+  height: 300px;
   
   
  
@@ -62,12 +59,32 @@ table.type09 td {
  
 }
 
-#btn{
-	width: 100px;
-	top: 70%;
-	left: 50%;
+
+
+.btn{
+	width: 200px;
+	height: 50px;
+	color: #fff;
+	background: #004fff;
+	font-size: 16px;
+	border: none;
+	border-radius: 25px;
+	box-shadow: 0 4px 16px rgba(0,79,255,0,3);
+	transition : 0.3s;
 	position: absolute;
-	margin-left: -50px;
+	left: 50%;
+	top: 65%;
+	transform: translate(-50%,-50%);
+	}
+	
+.btn:focus {
+	outline: 0;
+}	
+
+.btn:hover{
+	background: rgba(0,79,255,0,9);
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0,79,255,0.6);
 }
 </style>
 </head>
@@ -148,7 +165,8 @@ table.type09 td {
         
       </table>
 	
-		<button id="btn">돌아가기</button>
+		
+		<button class="btn" id="btn">돌아가기</button>
       
 
 <script type="text/javascript">

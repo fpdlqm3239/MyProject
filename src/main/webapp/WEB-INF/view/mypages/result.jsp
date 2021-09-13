@@ -9,6 +9,36 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sub.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style type="text/css">
+	body {
+		background-color: white;
+}
+
+.btn{
+	width: 100px;
+	height: 30px;
+	color: #fff;
+	background: #004fff;
+	font-size: 16px;
+	border: none;
+	border-radius: 20px;
+	box-shadow: 0 4px 16px rgba(0,79,255,0,3);
+	transition : 0.3s;
+	
+	
+	}
+	
+.btn:focus {
+	outline: 0;
+}	
+
+.btn:hover{
+	background: rgba(0,79,255,0,9);
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0,79,255,0.6);
+}
+	</style>
 </head>
 <body style="background-color: #fff">
 	<div id="header" class="clearfix">
@@ -79,9 +109,9 @@
 						</c:if>
 						<c:if test="${request != null}">
 							
-							<p style="color: black; display: inline;">신청 날짜 : </p> 
-							<p style="display: inline;">${request.createDate}</p> <br><br>
-							<a href="/vulnerability/mypages/progressinfo?userId=${request.userId}">신청 정보<a> <br><br>
+							<p style="color: black; display: inline;">신청 날짜  </p> &nbsp;
+							<p style="display: inline;">${request.createDate}</p> &nbsp; <button class="btn" id="infoBtn">신청 정보</button>
+							 <br><br>
 						</c:if>
 					</div>
 				</div>
@@ -97,8 +127,8 @@
 						<c:if test="${result == null}">진단 기록이 없습니다</c:if>
 						<c:forEach items="${result}" var="result2">
 					   
-						<a style="color: black" href="/vulnerability/mypages/detail?id=${result2.id}">점검결과</a> ${result2.createDate}
-						<br><br><br><br>
+						 ${result2.createDate} &nbsp; <button class="btn" id="resultBtn" onclick="result(${result2.id})">점검 결과</button>
+						<br><br>
 						</c:forEach>
 						<br><br><br><br>
 					</div>
@@ -107,5 +137,16 @@
 		</section>
 		
 	</div>
+	
+	<script type="text/javascript">
+		$("#infoBtn").click(function() {
+			location.href = "/vulnerability/mypages/progressinfo?userId=${request.userId}";
+		});
+		
+		function result(id) {
+			location.href = "/vulnerability/mypages/detail?id="+id;
+		};
+		
+	</script>
 </body>
 </html>
