@@ -109,7 +109,7 @@
 						</c:if>
 						<c:if test="${request != null}">
 							
-							<p style="color: black; display: inline;">신청 날짜  </p> &nbsp;
+							<p style="color: black; display: inline;">신청 일자  </p> &nbsp;
 							<p style="display: inline;">${request.createDate}</p> &nbsp; <button class="btn" id="infoBtn">신청 정보</button>
 							 <br><br>
 						</c:if>
@@ -127,7 +127,7 @@
 						<c:if test="${result == null}">진단 기록이 없습니다</c:if>
 						<c:forEach items="${result}" var="result2">
 					   
-						 ${result2.createDate} &nbsp; <button class="btn" id="resultBtn" onclick="result(${result2.id})">점검 결과</button>
+						<p style="color: black; display: inline;">점검 완료일  </p> &nbsp; ${result2.createDate} &nbsp; <button class="btn" id="resultBtn" onclick="result(${result2.id})">점검 결과</button>
 						<br><br>
 						</c:forEach>
 						<br><br><br><br>

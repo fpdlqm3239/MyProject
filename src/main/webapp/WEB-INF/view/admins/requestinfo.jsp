@@ -60,7 +60,7 @@ table.type09 td {
 
 #btn{
 	width: 100px;
-	top: 70%;
+	top: 60%;
 	left: 50%;
 	position: absolute;
 	margin-left: -50px;
@@ -78,7 +78,7 @@ table.type09 td {
 	transition : 0.3s;
 	position: absolute;
 	left: 50%;
-	top: 65%;
+	top: 53%;
 	transform: translate(-50%,-50%);
 	}
 	
@@ -166,7 +166,7 @@ table.type09 td {
 	
 		<button class="btn" id="scanBtn">진단하기</button>
 		
-		<button class="btn" id="completeBtn" style="top: 75%; display: none" onclick="complete()">진단 완료처리</button>
+		<button class="btn" id="completeBtn" style="top: 60%; display: none" onclick="complete()">진단 완료처리</button>
 </body>
 <script type="text/javascript">
 	function complete(){

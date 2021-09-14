@@ -26,13 +26,24 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/util.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css">
 <!--===============================================================================================-->
+
+<style type="text/css">
+	body {
+	background-color: white;
+}
+
+.msg{
+	color: red;
+	display: none;
+}
+</style>
 </head>
 <body>
 
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" method="post" action="/vulnerability/requests/sendRequest">
+			<form class="contact100-form validate-form" id="form" method="post" action="/vulnerability/requests/sendRequest">
 				<span class="contact100-form-title">
 					진단 요청
 				</span>
@@ -43,21 +54,27 @@
 
 				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 					<span style="color: black; font-size: 15px;" class="label-input100">시스템 유저 계정</span>
-					<input class="input100" type="text" name="userAccount" >
+					<input class="input100" type="text" name="userAccount" id="systemUser" >
 					<span class="focus-input100"></span>
 				</div>
+				<div class="msg" id="userAccount">시스템 유저 계정을 입력해주세요</div>
+				<br>
 
 				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 					<span style="color: black; font-size: 15px;" class="label-input100">시스템 유저 비밀번호</span>
-					<input class="input100" type="text" name="userPassword">
+					<input class="input100" type="text" name="userPassword" id="systemUserPass">
 					<span class="focus-input100"></span>
 				</div>
+				<div class="msg" id="userPass">시스템 유저 비밀번호를 입력해주세요</div>
+				<br>
 
 				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 					<span style="color: black; font-size: 15px;" class="label-input100">시스템 Root 비밀번호</span>
-					<input class="input100" type="text" name="rootPassword">
+					<input class="input100" type="text" name="rootPassword" id="systemRootPass">
 					<span class="focus-input100"></span>
 				</div>
+				<div class="msg" id="rootPass">시스템 root 비밀번호를 입력해주세요</div>
+				<br>
 
 				<div class="wrap-input100 input100-select">
 					<span class="label-input100">운영체제(OS)</span>
@@ -90,7 +107,7 @@
 				<div class="container-contact100-form-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-bgbtn"></div>
-						<button class="contact100-form-btn">
+						<button id="requestBtn" type="button" class="contact100-form-btn">
 							<span>
 								진단 요청하기
 								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -132,11 +149,31 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
+ 
+  
+  $("#requestBtn").click(function() {
+	  
+	  $(".msg").hide();
+	 
+	  if($("#systemUser").val() == ""){
+		  $("#userAccount").show();	
+		  return;
+  		}
+	  
+	  if($("#systemUserPass").val() == ""){
+		  $("#userPass").show();
+		  return;
+	  }
+	  
+	  if($("#systemRootPass").val() == ""){
+		  $("#rootPass").show();
+		  return;
+	  }
+	  
+	  $("#form").submit();
+	  
+	  
+  })
 </script>
 
 
