@@ -12,50 +12,15 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css" type="text/css">
 </head>
 <body>
-	<div id="header" class="clearfix">
-		<div class="inner">
-			<div id="logo">
-				<a href="#">
-					HOME
-					
-				</a>
-			</div>
-			<div id="menu">
-				<ul>
-					<li>
-						<a href="/vulnerability/requests/request">진단 요청하기</a>
-					</li>
-					<li>
-						<a href="/vulnerability/mypages/result">마이페이지</a>
-					</li>
-					<li>
-						<a href="#">MENU3</a>
-					</li>
-					<li>
-						<a href="#">MENU4</a>
-					</li>
-					<li class="login-btn">
-					<c:if test="${isUser == true}">
-						<a href="/vulnerability/logout">로그아웃</a>
-						</c:if>
-						<c:if test="${isUser == false}">
-						<a href="/vulnerability/members/loginform">로그인</a>
-						
-					</li>
-					<li class="login-btn">
-						<a href="/vulnerability/members/joinform">회원가입</a>
-					</li>
-					</c:if>
-				</ul>
-			</div>
-		</div>
-	</div>
+	
+	<jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+	
 	<div id="container">
 		<section class="main-banner">
 			<div class="inner">
 				<div class="text">
 					<em class="yAnimate_1">vulnerability</em>
-					<strong class="yAnimate_2">취약점진단</strong>
+					<strong class="yAnimate_2">시스템 취약점 진단</strong>
 					<span class="yAnimate_3">
 						Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 						<br>
