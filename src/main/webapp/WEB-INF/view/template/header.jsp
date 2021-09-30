@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css" type="text/css">
 </head>
 <body>
 <div id="header" class="clearfix">
@@ -36,7 +37,7 @@
 						<a href="/vulnerability/mypages/result">마이페이지</a>
 					</li>
 					<li>
-						<a href="#">제작자</a>
+						<a href="maker">제작자</a>
 					</li>
 					<li>
 						<a href="#">MENU4</a>
