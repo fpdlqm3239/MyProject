@@ -20,38 +20,7 @@
     </style>
 </head>
 <body>
-	<div id="header" class="clearfix">
-		<div class="inner">
-			<div id="logo">
-				<a href="/vulnerability/">
-					HOME
-				</a>
-			</div>
-			<div id="menu">
-				<ul>
-					<li>
-						<a href="/vulnerability/requests/request">진단요청하기</a>
-					</li>
-					<li>
-						<a href="/vulnerability/mypages/result">마이페이지</a>
-					</li>
-					<li>
-						<a href="#">MENU3</a>
-					</li>
-					<li>
-						<a href="#">MENU4</a>
-					</li>
-					<li class="login-btn" >
-						<a href="#" ><label for="tab-1">로그인</a>
-					</li>
-					<li class="login-btn">
-						<a href="#" ><label for="tab-2">회원가입</a>
-						
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 	<div class="login-wrap">
 		<div class="login-html">
 			<input id="tab-1"  type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">로그인</label>

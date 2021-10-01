@@ -23,7 +23,7 @@
 			
 		
 			<div id="logo">
-				<a href="#">
+				<a href="/vulnerability">
 					HOME
 					
 				</a>
@@ -37,7 +37,7 @@
 						<a href="/vulnerability/mypages/result">마이페이지</a>
 					</li>
 					<li>
-						<a href="maker">제작자</a>
+						<a href="/vulnerability/maker">제작자</a>
 					</li>
 					<li>
 						<a href="#">MENU4</a>

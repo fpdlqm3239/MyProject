@@ -22,44 +22,7 @@
 	</style>
 </head>
 <body>
-	<div id="header" class="clearfix">
-		<div class="inner">
-			<div id="logo">
-				<a href="/vulnerability/">
-					HOME
-				</a>
-			</div>
-			<div id="menu">
-				<ul>
-					<li>
-						<a href="/vulnerability/requests/request">진단요청하기</a>
-					</li>
-					<li>
-						<a href="/vulnerability/mypages/result">마이페이지</a>
-					</li>
-					<li>
-						<a href="#">MENU3</a>
-					</li>
-					<li>
-						<a href="#">MENU4</a>
-					</li>
-					<li class="login-btn" >
-						<c:if test="${isUser == true}">
-						<a href="/vulnerability/logout">로그아웃</a>
-						</c:if>
-						
-						<c:if test="${isUser == false}">
-						<a href="/vulnerability/members/loginform">로그인</a>
-						</c:if>
-					</li>
-					<li class="login-btn">
-						<a href="#" ><label for="tab-2">회원가입</a>
-						
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 	<div class="login-wrap">
 		<div class="login-html">
 			
