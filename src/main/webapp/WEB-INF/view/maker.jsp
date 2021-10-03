@@ -94,7 +94,7 @@ table.type07 td {
   </tr>
   <tr>
     <th scope="row">김성한</th>
-    <td>ㅋㅋㅋㅋㅋㅋㅋ</td>
+    <td>ㅋㅋㅋㅋㅋㅋㅋㅋㅋ</td>
   </tr>
   <tr>
     <th scope="row">김예리</th>
