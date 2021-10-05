@@ -54,7 +54,7 @@
 						</h2>
 					</div>
 					<div class="sub_table fl">
-						<p style="color: black; display: inline;">이름d </p>
+						<p style="color: black; display: inline;">이름 </p>
 						 <p style="display: inline; margin-left: 55px">${user.name} </p>
 						 <br><br>
 						<p style="color: black; display: inline;">아이디</p> 
