@@ -22,6 +22,7 @@
 	</style>
 </head>
 <body>
+<div class="wrapp">
 	<jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 	<div class="login-wrap">
 		<div class="login-html">
@@ -108,6 +109,7 @@
 			</form>
 			</div>
 		</div>
+	</div>
 	</div>
     <script type="text/javascript">
 		$("#name").focusout(function () {
@@ -298,5 +300,7 @@
 		
     
     </script>
+    
+    <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
 </body>
 </html>

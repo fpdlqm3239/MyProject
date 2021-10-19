@@ -41,6 +41,8 @@
 	</style>
 </head>
 <body style="background-color: #fff">
+
+<div class="wrapp">
 	<jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 	<br>
 	<div id="container">
@@ -107,8 +109,11 @@
 			</div>
 		</section>
 		
+		
+		
 	</div>
-	
+	</div>
+	<jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
 	<script type="text/javascript">
 		$("#infoBtn").click(function() {
 			location.href = "/vulnerability/mypages/progressinfo?userId=${request.userId}";
