@@ -10,11 +10,11 @@
 </head>
 <body>
 <div id="header" class="clearfix">
-		<div id="leftLogo">
-		 <img alt="logo" style="width: 200px" height="45px" src="${pageContext.request.contextPath}/resources/images/중부대 로고8.png">
+		<div id="leftLogo" style="margin-top: -0.2%">
+		 <img alt="logo" style="width: 250px; height: 65px" src="${pageContext.request.contextPath}/resources/images/중부대 로고5.png">
 	
 		</div>
-		<div id="leftLogo" style="color: gray;">
+		<div id="leftLogo" style="color: white;">
 		 정보보호학과
 	
 		</div>
