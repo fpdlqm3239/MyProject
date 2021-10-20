@@ -20,6 +20,7 @@
     </style>
 </head>
 <body>
+	<div class="wrapp">
 	<jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 	<div class="login-wrap">
 		<div class="login-html">
@@ -88,8 +89,9 @@
 			</div>
 		</div>
 	</div>
+	</div>
     
-
+<jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
 		
     <script type="text/javascript">
    		$(".js-joinBtn").click(function () {

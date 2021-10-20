@@ -12,6 +12,8 @@
 	
 </head>
 <body>
+
+
 	
 	<jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 	
@@ -19,7 +21,7 @@
 		<section class="main-banner">
 			<div class="inner">
 				<div class="text">
-					<em class="yAnimate_1">vulnerability</em>
+					<em class="yAnimate_1">Vulnerability</em>
 					<strong class="yAnimate_2">시스템 취약점 진단</strong>
 					<span class="yAnimate_3">
 						Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -95,39 +97,13 @@
 							has been the industry's standard dummy text
 						</p>
 					</div>
-					<div class="box">
-						<h3>Lorem</h3>
-						<p>
-							Lorem Ipsum is simply dummy tex of the printing
-							and typesetting industry. Lorem Ipsum
-							has been the industry's standard dummy text
-							and typesetting industry. Lorem Ipsum
-							has been the industry's standard dummy text
-						</p>
-					</div>
-					<div class="box">
-						<h3>Lorem</h3>
-						<p>
-							Lorem Ipsum is simply dummy tex of the printing
-							and typesetting industry. Lorem Ipsum
-							has been the industry's standard dummy text
-							and typesetting industry. Lorem Ipsum
-							has been the industry's standard dummy text
-						</p>
-					</div>
-					<div class="box">
-						<h3>Lorem</h3>
-						<p>
-							Lorem Ipsum is simply dummy tex of the printing
-							and typesetting industry. Lorem Ipsum
-							has been the industry's standard dummy text
-							and typesetting industry. Lorem Ipsum
-							has been the industry's standard dummy text
-						</p>
-					</div>
+					
 				</div>
 			</div>
 		
 	</div>
+	
+	
+	<jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
 </body>
 </html>

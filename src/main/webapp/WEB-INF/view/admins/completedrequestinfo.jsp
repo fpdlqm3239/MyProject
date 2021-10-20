@@ -50,11 +50,10 @@
 						</h2>
 					</div>
 					<div class="sub_table fl" style="color: black;">
-						<p>이름 : ${completedRequest.name}</p>
-						<p>계정 : ${completedRequest.loginId}</p>
-						<p>연락처 : ${completedRequest.phone}</p>
-						<p>운영체제(OS) : ${completedRequest.os}</p>
-						<p>IP : ${completedRequest.ip}</p>
+						<p>이름 : ${user.name}</p>
+						<p>계정 : ${user.loginId}</p>
+						<p>연락처 : ${user.phone}</p>
+						<p>점검 완료일 : ${result.createDate}</p>
 					</div>
 				</div>
 				<div class="sub_contents clearfix">

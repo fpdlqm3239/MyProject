@@ -74,11 +74,11 @@ table.type07 td {
 
 	</head>
 	<body>
-	
+	<div class="wrapp">
 	<jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 	
 	<div class="teamName">
-		<p>팀명 : Copyright</p>
+		<p>팀명 : Checker</p>
 	</div>
 	<table class="type07">
   <thead>
@@ -110,5 +110,7 @@ table.type07 td {
   </tr>
   </tbody>
 </table>
+</div>
+<jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
 	</body>
 </html>

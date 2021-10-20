@@ -73,7 +73,7 @@ table.type09 td {
 	transition : 0.3s;
 	position: absolute;
 	left: 50%;
-	top: 50%;
+	top: 60%;
 	transform: translate(-50%,-50%);
 	}
 	
@@ -92,7 +92,7 @@ table.type09 td {
 
 
 <body>
-
+<div class="wrapp">
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <br><br>
 
@@ -139,7 +139,8 @@ table.type09 td {
 		
 		<button class="btn" id="btn">돌아가기</button>
       
-
+</div>
+<jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
 <script type="text/javascript">
 	$("#btn").click(function() {
 		location.href = '${pageContext.request.contextPath}/mypages/result';

@@ -48,15 +48,15 @@ p{
 <br>
 <h1 style="color: black; margin-left: 20px;">완료된 진단요청</h1>
 <br><br><br>
-<c:if test="${completedRequests == null}">완료된 진단이 없습니다</c:if>
-<c:forEach items="${completedRequests}" var="request" varStatus="status">
+<c:if test="${resultList.size() == 0}">완료된 진단이 없습니다</c:if>
+<c:forEach items="${resultList}" var="result" varStatus="status">
 <hr style="margin-bottom: 20px; margin-top: 20PX;">
 <p>완료된 진단</p>
-<p>유저 ID  : ${request.loginId}</p>
-<p>완료 시간 : ${request.createDate}</p> 
+<p>유저 ID : ${result.loginId}</p>
+<p>완료 시간 : ${result.createDate}</p> 
 
 <form method="get" action="/vulnerability/admins/completedinfo">
-<input type="hidden" name="requestId" value="${request.requestId}">
+<input type="hidden" name="resultId" value="${result.id}">
  <input style="width: 70px; margin-left: 20px" height="40px" type="submit" value="상세보기" >    
 </form>
 <c:if test="${status.last}">
