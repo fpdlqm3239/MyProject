@@ -25,14 +25,14 @@ html,body {
 .wrapp{
 	height:auto;
     min-height: 100%;
-    padding-bottom: 300px;
+    padding-bottom: 30px;
 
 }
 
 .footer {   
 
-width: 100%;  
-height: 300px;
+ 
+height: 30px;
 font-size: 20px;
 position: relative;
 transform: translateY(-100%);
