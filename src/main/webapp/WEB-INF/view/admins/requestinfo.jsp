@@ -78,7 +78,7 @@ table.type09 td {
 	transition : 0.3s;
 	position: absolute;
 	left: 50%;
-	top: 70%;
+	top: 55%;
 	transform: translate(-50%,-50%);
 	}
 	
@@ -166,7 +166,7 @@ table.type09 td {
 	
 		<button class="btn" id="scanBtn">진단하기</button>
 		
-		<button class="btn" id="completeBtn" style="top: 80%; display: none" onclick="complete()">진단 완료처리</button>
+		<button class="btn" id="completeBtn" style="top: 60%; display: none" onclick="complete()">진단 완료처리</button>
 </body>
 <script type="text/javascript">
 	function complete(){
@@ -179,8 +179,6 @@ table.type09 td {
 	
 	$("#scanBtn").click(function() {
 		window.open("https://172.24.27.50:4200/","시스템 취약점 진단", "height = 500, width=700, resizable=no");
-		var shell = new ActiveXObject("WScript.shell");
-		shell.run("C:\Users\김성한\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\cmd.exe", 1, true); 
 		$("#completeBtn").show();
 	})
 	
