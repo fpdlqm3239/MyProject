@@ -73,7 +73,7 @@ table.type09 td {
 	transition : 0.3s;
 	position: absolute;
 	left: 50%;
-	top: 60%;
+	top: 70%;
 	transform: translate(-50%,-50%);
 	}
 	

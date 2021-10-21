@@ -83,7 +83,7 @@
 					</div>
 					<div class="sub_table fl">
 						<table>
-							<col width="100px"><col width="100px"><col width="90px"><col width="150px"><col width="200px"><col width="250px">
+							<col width="70px"><col width="70px"><col width="150px"><col width="50px"><col width="300px"><col width="80px">
  							<thead>
 								<tr class="bdln bdrn">
 									
@@ -128,6 +128,54 @@
 								   <td>${file.inspectionStatus}</td>
 								   <td>${file.result}</td>
 								   <td class="bdrn">${file.actionItem}</td>
+						   </tr>
+							</c:forEach>
+							
+							<tr class="bdln bdrn">
+						   
+								<td class="bdln" rowspan="${fn:length(serviceList)}">${serviceList[0].category}</td>
+								
+							<c:forEach items="${serviceList}" var="service" varStatus="status">
+								   <c:if test="${!status.first}"> <tr class="bdln bdrn"> </c:if>
+								   
+								   <td>${service.code}</td>
+								   <td>${service.checkItem}</td>
+								   <td>${service.importance}</td>
+								   <td>${service.inspectionStatus}</td>
+								   <td>${service.result}</td>
+								   <td class="bdrn">${service.actionItem}</td>
+						   </tr>
+							</c:forEach>
+							
+								<tr class="bdln bdrn">
+						   
+								<td class="bdln" rowspan="${fn:length(logList)}">${logList[0].category}</td>
+								
+							<c:forEach items="${logList}" var="log" varStatus="status">
+								   <c:if test="${!status.first}"> <tr class="bdln bdrn"> </c:if>
+								   
+								   <td>${log.code}</td>
+								   <td>${log.checkItem}</td>
+								   <td>${log.importance}</td>
+								   <td>${log.inspectionStatus}</td>
+								   <td>${log.result}</td>
+								   <td class="bdrn">${log.actionItem}</td>
+						   </tr>
+							</c:forEach>
+							
+								<tr class="bdln bdrn">
+						   
+								<td class="bdln" rowspan="${fn:length(patchList)}">${patchList[0].category}</td>
+								
+							<c:forEach items="${patchList}" var="patch" varStatus="status">
+								   <c:if test="${!status.first}"> <tr class="bdln bdrn"> </c:if>
+								   
+								   <td>${patch.code}</td>
+								   <td>${patch.checkItem}</td>
+								   <td>${patch.importance}</td>
+								   <td>${patch.inspectionStatus}</td>
+								   <td>${patch.result}</td>
+								   <td class="bdrn">${patch.actionItem}</td>
 						   </tr>
 							</c:forEach>
 				

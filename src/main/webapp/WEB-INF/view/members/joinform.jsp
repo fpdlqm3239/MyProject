@@ -102,9 +102,7 @@
 					</div>
 					
 					<div class="hr"></div>
-					<div class="foot-lnk">
-						<a href="${pageContext.request.contextPath}/members/loginform"><label for="tab-1">이미 회원이신가요?</a>
-					</div>
+					
 				</div>
 			</form>
 			</div>
