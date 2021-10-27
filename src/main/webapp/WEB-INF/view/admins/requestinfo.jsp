@@ -158,6 +158,10 @@ table.type09 td {
           <th scope="row">시스템 ROOT 패스워드</th>
           <td>${request.rootPassword}</td>
         </tr>
+        <tr>
+          <th scope="row">user ID</th>
+          <td>${request.userId}</td>
+        </tr>
 
         
         </tbody>
